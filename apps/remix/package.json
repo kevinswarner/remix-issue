@@ -1,0 +1,34 @@
+{
+  "name": "remix",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:css\" \"remix dev --port 3000\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "start": "remix-serve build",
+    "lint": "eslint app/**",
+    "format": "prettier --write \"**/*.{js,jsx,md}\""
+  },
+  "dependencies": {
+    "@remix-run/node": "^1.6.2",
+    "@remix-run/react": "^1.6.2",
+    "@remix-run/serve": "^1.6.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.6.2",
+    "@remix-run/eslint-config": "^1.6.2",
+    "autoprefixer": "^10.4.7",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.15.0",
+    "postcss": "^8.4.14",
+    "prettier": "2.7.1",
+    "tailwindcss": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
